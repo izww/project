@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+/* Global Values */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --main-color: #019c90;
+    --main-color-alt: #008b80;
+    --background-color-alt: #f6f6f6;
+    --main-transition: 0.3s;
+    --main-padding: 100px;
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+}
+
+@media (min-width: 767px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.main-title {
+    font-size: 32px;
+    color: var(--main-color);
+    text-align: center;
+    letter-spacing: 5px;
+    margin-bottom: 100px;
+    transition: var(--main-transition);
+    cursor: default;
+
+}
+
+.main-title:hover {
+    letter-spacing: 0;
+}
+
+.squares {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(1 156 144 / 15%);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+@media (max-width:992px) {
+    .squares {
+        display: none;
+    }
+}
+
+.squares::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px; 
+    background-color: rgba(1 156 144 / 15%);
+}
+
+.squares::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(1 156 144 / 15%);
+}
+
+.squares.bottom {
+    bottom: 200px;
+    left: 50px;
+}
+
+.squares.bottom::after {
+    top: 205px;
+    left: 0px;
+}
+
+.squares.bottom::before {
+    left: -205px;
+}
+
+.squares.top {
+    right: 50px;
+    top: 200px;
+}
+
+.squares.top::before {
+    top: -205px;
+}
+
+.squares.top::after {
+    right: -205px;
+}
+
+/* Landing */
+
+.landing {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.landing::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0 0 0 / 60%);
+}
+
+.landing .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 6;
+}
+
+.landing .text h2 {
+    font-size: 46px;
+    color: var(--main-color);
+}
+
+.landing .text p {
+    color: white;
+    font-size:36px;
+    margin: 26px 0;
+}
+
+.landing .text .social a i {
+    font-size: 34px;
+    color: white;
+    position: relative;
+    transition: var(--main-transition);
+}
+
+.landing .text .social a:not(:last-of-type) i {
+    margin-right: 25px;
+}
+
+.landing .text .social a i:hover {
+    transform: translateY(-5px);
+}
+
+.landing .text .social a i.youtube:hover {
+    color: #CD201F;
+}
+
+.landing .text .social a i.instagram:hover {
+    color: violet;
+}
+
+.landing .text .social a i.github:hover {
+    color: #eee;
+}
+
+/* Video */
+
+.video {
+    padding: var(--main-padding) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.video video {
+    max-width: 100%;
+    position: relative;
+    transition: 0.5s;
+    border-radius: 6px;
+}
+
+.video.unshow video {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+/* Lists */
+
+.lists {
+    padding: var(--main-padding) 0;
+    position: relative;
+    background-color: var(--background-color-alt);
+    overflow: hidden;
+}
+
+.lists .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .lists .container {
+        flex-direction: column;
+    }
+}
+
+.lists .container .box {
+    flex-basis: 45%;
+}
+
+@media (max-width: 992px) {
+    .lists .container .box {
+        margin-top: 60px;
+        width: 100%;
+    }
+}
+
+.lists .box h2 {
+    display: block;
+    padding: 20px 40px;
+    margin: 0 auto 40px;
+    width: fit-content;
+    background-color: var(--main-color);
+    color: white;
+    position: relative;
+}
+
+.lists .box h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--background-color-alt);
+    border-width: 34px;
+}
+
+
+.lists .box h2::after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--main-color);
+    border-width: 30px;
+    transition: var(--main-transition);
+}
+
+.lists .box h2:hover::after {
+    top: 0;
+    left: 1px;
+    border-width: 34px;
+}
+
+.lists .container li {
+    width: 100%;
+    background-color: white;
+    padding: 20px 120px 20px 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    transition: 0.5s;
+    counter-increment: boxs;
+    overflow: hidden;
+}
+
+.lists.unshow li:not(:nth-of-type(2)) {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+.lists.unshow li:nth-of-type(2) {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.lists .container li:hover {
+    transform: translateX(-10px);
+}
+
+.lists .container ol li::before {
+    content: "0" counter(boxs);
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 26px;
+}
+
+.lists .container li::after {
+    content: '';
+    position: absolute;
+    right: 60px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background-color: var(--main-color);
+    transform: rotate(12deg);
+}
+
+.lists .container ul li::before {
+    content: '-';
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px 36px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 26px; 
+}
+
+/* Contact */
+
+.contact {
+    padding: var(--main-padding) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .contact .container {
+        flex-direction: column;
+    }
+}
+
+.contact .image {
+    width: 450px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: 0.7s;
+}
+
+@media (max-width: 991px) {
+    .contact .image {
+        display: none;
+    }
+}
+
+.contact.unshow .image {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.contact .image img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+.contact .image .text {
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 70%;
+    background-image: linear-gradient(to bottom, transparent 50%, #191919 70%);
+    z-index: 999;
+    transition: var(--main-transition);
+    border-radius: 6px;
+}
+
+.contact .image:hover .text {
+    bottom: 0;
+}
+
+.contact .image .text h2 {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    color: white;
+}
+
+.contact .box {
+    box-shadow: 0 0px 25px rgba(0 0 0 / 15%);
+    margin-bottom: 20px;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.contact .box:hover {
+    transform: scale(1.035);
+}
+
+.contact.unshow .box:first-of-type {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+.contact.unshow .box:last-of-type {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.contact .box i {
+    font-size: 36px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.contact .box a {
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+}
